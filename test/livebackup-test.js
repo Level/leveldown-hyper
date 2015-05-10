@@ -27,14 +27,12 @@ test('setUp db', function (t) {
 })
 
 test('liveBackup', function (t) {
-  var expected = {
-    name: 'Error',
-    message: 'liveBackup() requires a valid `name` argument'
-  }
-  t.throws(db.liveBackup.bind(db, null), expected)
-  t.throws(db.liveBackup.bind(db), expected)
-  t.throws(db.liveBackup.bind(db, function () {}), expected)
-  var now = Date.now()
+  t.throws(db.liveBackup.bind(db), /requires `location` and `callback`/)
+  t.throws(db.liveBackup.bind(db, null, null), /requires a location string argument/)
+  t.throws(db.liveBackup.bind(db, 'a string'), /requires `location` and `callback`/)
+  t.throws(db.liveBackup.bind(db, 'a string', null), /requires a callback function argument/)
+  t.doesNotThrow(db.liveBackup.bind(db, 'a string', function () {}))
+  var now = String(Date.now())
   db.liveBackup(now, function (err) {
     t.ok(!err, 'no liveBackup error')
     var backup = join(location, 'backup-' + now)
