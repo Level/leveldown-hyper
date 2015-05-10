@@ -99,4 +99,18 @@ LevelDOWNHyper.repair = function (location, callback) {
 }
 
 
+LevelDOWNHyper.liveBackup = function (location, callback) {
+  if (arguments.length < 2)
+    throw new Error('liveBackup() requires `location` and `callback` arguments')
+
+  if (typeof location != 'string')
+    throw new Error('liveBackup() requires a location string argument')
+
+  if (typeof callback != 'function')
+    throw new Error('liveBackup() requires a callback function argument')
+
+  binding.liveBackup(location, callback)
+}
+
+
 module.exports = LevelDOWNHyper
