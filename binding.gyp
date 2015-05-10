@@ -1,6 +1,6 @@
 {
     "targets": [{
-      "target_name": "leveldown"
+      "target_name": "leveldown-hyper"
     , "conditions": [
           ["OS == 'win'", {
               "defines": [
