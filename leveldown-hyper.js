@@ -17,46 +17,37 @@ function LevelDOWNHyper (location) {
 
 util.inherits(LevelDOWNHyper, AbstractLevelDOWN)
 
-
 LevelDOWNHyper.prototype._open = function (options, callback) {
   this.binding.open(options, callback)
 }
-
 
 LevelDOWNHyper.prototype._close = function (callback) {
   this.binding.close(callback)
 }
 
-
 LevelDOWNHyper.prototype._put = function (key, value, options, callback) {
   this.binding.put(key, value, options, callback)
 }
-
 
 LevelDOWNHyper.prototype._get = function (key, options, callback) {
   this.binding.get(key, options, callback)
 }
 
-
 LevelDOWNHyper.prototype._del = function (key, options, callback) {
   this.binding.del(key, options, callback)
 }
-
 
 LevelDOWNHyper.prototype._chainedBatch = function () {
   return new ChainedBatch(this)
 }
 
-
 LevelDOWNHyper.prototype._batch = function (operations, options, callback) {
   return this.binding.batch(operations, options, callback)
 }
 
-
 LevelDOWNHyper.prototype._approximateSize = function (start, end, callback) {
   this.binding.approximateSize(start, end, callback)
 }
-
 
 LevelDOWNHyper.prototype.getProperty = function (property) {
   if (typeof property != 'string')
@@ -65,11 +56,22 @@ LevelDOWNHyper.prototype.getProperty = function (property) {
   return this.binding.getProperty(property)
 }
 
+LevelDOWNHyper.prototype.liveBackup = function (location, callback) {
+  if (arguments.length < 2)
+    throw new Error('liveBackup() requires `location` and `callback` arguments')
+
+  if (typeof location != 'string')
+    throw new Error('liveBackup() requires a location string argument')
+
+  if (typeof callback != 'function')
+    throw new Error('liveBackup() requires a callback function argument')
+
+  this.binding.liveBackup(location, callback)
+}
 
 LevelDOWNHyper.prototype._iterator = function (options) {
   return new Iterator(this, options)
 }
-
 
 LevelDOWNHyper.destroy = function (location, callback) {
   if (arguments.length < 2)
@@ -84,7 +86,6 @@ LevelDOWNHyper.destroy = function (location, callback) {
   binding.destroy(location, callback)
 }
 
-
 LevelDOWNHyper.repair = function (location, callback) {
   if (arguments.length < 2)
     throw new Error('repair() requires `location` and `callback` arguments')
@@ -97,20 +98,5 @@ LevelDOWNHyper.repair = function (location, callback) {
 
   binding.repair(location, callback)
 }
-
-
-LevelDOWNHyper.liveBackup = function (location, callback) {
-  if (arguments.length < 2)
-    throw new Error('liveBackup() requires `location` and `callback` arguments')
-
-  if (typeof location != 'string')
-    throw new Error('liveBackup() requires a location string argument')
-
-  if (typeof callback != 'function')
-    throw new Error('liveBackup() requires a callback function argument')
-
-  binding.liveBackup(location, callback)
-}
-
 
 module.exports = LevelDOWNHyper
