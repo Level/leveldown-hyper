@@ -6,8 +6,8 @@
 #include <node.h>
 #include <node_buffer.h>
 
-#include <leveldb/write_batch.h>
-#include <leveldb/filter_policy.h>
+#include <hyperleveldb/write_batch.h>
+#include <hyperleveldb/filter_policy.h>
 
 #include "database.h"
 #include "leveldown.h"
@@ -262,6 +262,30 @@ void ApproximateSizeWorker::HandleOKCallback () {
     , returnValue
   };
   callback->Call(2, argv);
+}
+
+LiveBackupWorker::LiveBackupWorker (
+    Database *database
+  , NanCallback *callback
+  , leveldb::Slice name
+  , v8::Local<v8::Object> &nameHandle
+) : AsyncWorker(database, callback)
+  , name(name)
+{
+  NanScope();
+  SaveToPersistent("name", nameHandle);
+};
+
+LiveBackupWorker::~LiveBackupWorker () {}
+
+void LiveBackupWorker::Execute () {
+  SetStatus(database->LiveBackup(name));
+}
+
+void LiveBackupWorker::WorkComplete () {
+  NanScope();
+  DisposeStringOrBufferFromSlice(GetFromPersistent("name"), name);
+  AsyncWorker::WorkComplete();
 }
 
 } // namespace leveldown

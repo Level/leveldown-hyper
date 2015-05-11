@@ -1,7 +1,12 @@
 {'targets': [{
-    'target_name': 'leveldb'
+    'target_name': 'leveldb-hyper'
   , 'variables': {
-        'ldbversion': '1.17.0'
+        'ldbversion': 'hyper'
+      , 'base': 'leveldb-hyper-1.0.2'
+      , 'conditions': [
+            ['OS=="linux"',   {'os_include': 'linux'}]
+          , ['OS=="mac"',     {'os_include': 'mac'}]
+        ]
     }
   , 'type': 'static_library'
 		# Overcomes an issue with the linker and thin .a files on SmartOS
@@ -11,23 +16,25 @@
     ]
   , 'direct_dependent_settings': {
         'include_dirs': [
-            'leveldb-<(ldbversion)/include/'
-          , 'leveldb-<(ldbversion)/port/'
-          , 'leveldb-<(ldbversion)/util'
-          , 'leveldb-<(ldbversion)/'
+            '<(base)/include/'
+          , '<(base)/port/'
+          , '<(base)/util'
+          , '<(base)/'
         ]
     }
   , 'defines': [
         'SNAPPY=1'
+      , 'HAVE_CONFIG_H=1'
     ]
   , 'include_dirs': [
-        'leveldb-<(ldbversion)/'
-      , 'leveldb-<(ldbversion)/include/'
+        'leveldb-hyper-conf/<(os_include)/'
+      , '<(base)/'
+      , '<(base)/include/'
     ]
   , 'conditions': [
         ['OS == "win"', {
             'include_dirs': [
-                'leveldb-<(ldbversion)/port/win'
+                '<(base)/port/win'
               , 'port-libuv/'
             ]
           , 'defines': [
@@ -50,9 +57,9 @@
             }
         }, { # OS != "win"
             'sources': [
-                'leveldb-<(ldbversion)/port/port_posix.cc'
-              , 'leveldb-<(ldbversion)/port/port_posix.h'
-              , 'leveldb-<(ldbversion)/util/env_posix.cc'
+                '<(base)/port/port_posix.cc'
+              , '<(base)/port/port_posix.h'
+              , '<(base)/util/env_posix.cc'
             ]
           , 'defines': [
                 'LEVELDB_PLATFORM_POSIX=1'
@@ -64,10 +71,19 @@
           , 'cflags': [ '-std=c++0x' ]
           , 'cflags!': [ '-fno-tree-vrp' ]
         }]
-      , ['OS != "win"' and 'OS != "freebsd"', {
+      , ['OS != "win" and OS != "freebsd"', {
             'cflags': [
                 '-Wno-sign-compare'
               , '-Wno-unused-but-set-variable'
+              , '-Wno-unused-variable'
+              , '-Wno-maybe-uninitialized'
+              , '-Wno-type-limits'
+              , '-Wno-reorder'
+            ]
+        }]
+      , ['OS == "linux" or OS == "freebsd" or OS == "solaris"', {
+            'cflags_cc+': [
+                '-frtti'
             ]
         }]
       , ['OS == "linux"', {
@@ -125,83 +141,45 @@
         }]
     ]
   , 'sources': [
-        'leveldb-<(ldbversion)/db/builder.cc'
-      , 'leveldb-<(ldbversion)/db/builder.h'
-      , 'leveldb-<(ldbversion)/db/db_impl.cc'
-      , 'leveldb-<(ldbversion)/db/db_impl.h'
-      , 'leveldb-<(ldbversion)/db/db_iter.cc'
-      , 'leveldb-<(ldbversion)/db/db_iter.h'
-      , 'leveldb-<(ldbversion)/db/filename.cc'
-      , 'leveldb-<(ldbversion)/db/filename.h'
-      , 'leveldb-<(ldbversion)/db/dbformat.cc'
-      , 'leveldb-<(ldbversion)/db/dbformat.h'
-      , 'leveldb-<(ldbversion)/db/log_format.h'
-      , 'leveldb-<(ldbversion)/db/log_reader.cc'
-      , 'leveldb-<(ldbversion)/db/log_reader.h'
-      , 'leveldb-<(ldbversion)/db/log_writer.cc'
-      , 'leveldb-<(ldbversion)/db/log_writer.h'
-      , 'leveldb-<(ldbversion)/db/memtable.cc'
-      , 'leveldb-<(ldbversion)/db/memtable.h'
-      , 'leveldb-<(ldbversion)/db/repair.cc'
-      , 'leveldb-<(ldbversion)/db/skiplist.h'
-      , 'leveldb-<(ldbversion)/db/snapshot.h'
-      , 'leveldb-<(ldbversion)/db/table_cache.cc'
-      , 'leveldb-<(ldbversion)/db/table_cache.h'
-      , 'leveldb-<(ldbversion)/db/version_edit.cc'
-      , 'leveldb-<(ldbversion)/db/version_edit.h'
-      , 'leveldb-<(ldbversion)/db/version_set.cc'
-      , 'leveldb-<(ldbversion)/db/version_set.h'
-      , 'leveldb-<(ldbversion)/db/write_batch.cc'
-      , 'leveldb-<(ldbversion)/db/write_batch_internal.h'
-      , 'leveldb-<(ldbversion)/helpers/memenv/memenv.cc'
-      , 'leveldb-<(ldbversion)/helpers/memenv/memenv.h'
-      , 'leveldb-<(ldbversion)/include/leveldb/cache.h'
-      , 'leveldb-<(ldbversion)/include/leveldb/comparator.h'
-      , 'leveldb-<(ldbversion)/include/leveldb/db.h'
-      , 'leveldb-<(ldbversion)/include/leveldb/env.h'
-      , 'leveldb-<(ldbversion)/include/leveldb/filter_policy.h'
-      , 'leveldb-<(ldbversion)/include/leveldb/iterator.h'
-      , 'leveldb-<(ldbversion)/include/leveldb/options.h'
-      , 'leveldb-<(ldbversion)/include/leveldb/slice.h'
-      , 'leveldb-<(ldbversion)/include/leveldb/status.h'
-      , 'leveldb-<(ldbversion)/include/leveldb/table.h'
-      , 'leveldb-<(ldbversion)/include/leveldb/table_builder.h'
-      , 'leveldb-<(ldbversion)/include/leveldb/write_batch.h'
-      , 'leveldb-<(ldbversion)/port/port.h'
-      , 'leveldb-<(ldbversion)/table/block.cc'
-      , 'leveldb-<(ldbversion)/table/block.h'
-      , 'leveldb-<(ldbversion)/table/block_builder.cc'
-      , 'leveldb-<(ldbversion)/table/block_builder.h'
-      , 'leveldb-<(ldbversion)/table/filter_block.cc'
-      , 'leveldb-<(ldbversion)/table/filter_block.h'
-      , 'leveldb-<(ldbversion)/table/format.cc'
-      , 'leveldb-<(ldbversion)/table/format.h'
-      , 'leveldb-<(ldbversion)/table/iterator.cc'
-      , 'leveldb-<(ldbversion)/table/iterator_wrapper.h'
-      , 'leveldb-<(ldbversion)/table/merger.cc'
-      , 'leveldb-<(ldbversion)/table/merger.h'
-      , 'leveldb-<(ldbversion)/table/table.cc'
-      , 'leveldb-<(ldbversion)/table/table_builder.cc'
-      , 'leveldb-<(ldbversion)/table/two_level_iterator.cc'
-      , 'leveldb-<(ldbversion)/table/two_level_iterator.h'
-      , 'leveldb-<(ldbversion)/util/arena.cc'
-      , 'leveldb-<(ldbversion)/util/arena.h'
-      , 'leveldb-<(ldbversion)/util/bloom.cc'
-      , 'leveldb-<(ldbversion)/util/cache.cc'
-      , 'leveldb-<(ldbversion)/util/coding.cc'
-      , 'leveldb-<(ldbversion)/util/coding.h'
-      , 'leveldb-<(ldbversion)/util/comparator.cc'
-      , 'leveldb-<(ldbversion)/util/crc32c.cc'
-      , 'leveldb-<(ldbversion)/util/crc32c.h'
-      , 'leveldb-<(ldbversion)/util/env.cc'
-      , 'leveldb-<(ldbversion)/util/filter_policy.cc'
-      , 'leveldb-<(ldbversion)/util/hash.cc'
-      , 'leveldb-<(ldbversion)/util/hash.h'
-      , 'leveldb-<(ldbversion)/util/logging.cc'
-      , 'leveldb-<(ldbversion)/util/logging.h'
-      , 'leveldb-<(ldbversion)/util/mutexlock.h'
-      , 'leveldb-<(ldbversion)/util/options.cc'
-      , 'leveldb-<(ldbversion)/util/random.h'
-      , 'leveldb-<(ldbversion)/util/status.cc'
+        '<(base)/util/bloom.cc'
+      , '<(base)/util/env_posix.cc'
+      , '<(base)/util/env.cc'
+      , '<(base)/util/histogram.cc'
+      , '<(base)/util/coding.cc'
+      , '<(base)/util/hash.cc'
+      , '<(base)/util/logging.cc'
+      , '<(base)/util/filter_policy.cc'
+      , '<(base)/util/arena.cc'
+      , '<(base)/util/cache.cc'
+      , '<(base)/util/comparator.cc'
+      , '<(base)/util/status.cc'
+      , '<(base)/util/options.cc'
+      , '<(base)/util/crc32c.cc'
+      , '<(base)/db/c.cc'
+      , '<(base)/db/log_reader.cc'
+      , '<(base)/db/repair.cc'
+      , '<(base)/db/table_cache.cc'
+      , '<(base)/db/log_writer.cc'
+      , '<(base)/db/dbformat.cc'
+      , '<(base)/db/write_batch.cc'
+      , '<(base)/db/db_impl.cc'
+      , '<(base)/db/memtable.cc'
+      , '<(base)/db/leveldb_main.cc'
+      , '<(base)/db/version_edit.cc'
+      , '<(base)/db/version_set.cc'
+      , '<(base)/db/builder.cc'
+      , '<(base)/db/filename.cc'
+      , '<(base)/db/db_iter.cc'
+      , '<(base)/db/replay_iterator.cc'
+      , '<(base)/port/port_posix.cc'
+      , '<(base)/table/merger.cc'
+      , '<(base)/table/filter_block.cc'
+      , '<(base)/table/block_builder.cc'
+      , '<(base)/table/iterator.cc'
+      , '<(base)/table/table_builder.cc'
+      , '<(base)/table/format.cc'
+      , '<(base)/table/table.cc'
+      , '<(base)/table/block.cc'
+      , '<(base)/table/two_level_iterator.cc'
     ]
 }]}

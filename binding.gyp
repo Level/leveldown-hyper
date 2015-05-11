@@ -22,7 +22,7 @@
           }]
         ]
       , "dependencies": [
-            "<(module_root_dir)/deps/leveldb/leveldb.gyp:leveldb"
+            "<(module_root_dir)/deps/leveldb/leveldb.gyp:leveldb-hyper"
         ]
       , "include_dirs"  : [
             "<!(node -e \"require('nan')\")"
