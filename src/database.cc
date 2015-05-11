@@ -6,8 +6,8 @@
 #include <node.h>
 #include <node_buffer.h>
 
-#include <leveldb/db.h>
-#include <leveldb/write_batch.h>
+#include <hyperleveldb/db.h>
+#include <hyperleveldb/write_batch.h>
 
 #include "leveldown.h"
 #include "database.h"
@@ -92,6 +92,10 @@ leveldb::Iterator* Database::NewIterator (leveldb::ReadOptions* options) {
   return db->NewIterator(*options);
 }
 
+leveldb::Status Database::LiveBackup (const leveldb::Slice& name) {
+  return db->LiveBackup(name);
+}
+
 const leveldb::Snapshot* Database::NewSnapshot () {
   return db->GetSnapshot();
 }
@@ -151,6 +155,7 @@ void Database::Init () {
   NODE_SET_PROTOTYPE_METHOD(tpl, "approximateSize", Database::ApproximateSize);
   NODE_SET_PROTOTYPE_METHOD(tpl, "getProperty", Database::GetProperty);
   NODE_SET_PROTOTYPE_METHOD(tpl, "iterator", Database::Iterator);
+  NODE_SET_PROTOTYPE_METHOD(tpl, "liveBackup", Database::LiveBackup);
 }
 
 NAN_METHOD(Database::New) {
@@ -549,5 +554,30 @@ NAN_METHOD(Database::Iterator) {
   NanReturnValue(iteratorHandle);
 }
 
+NAN_METHOD(Database::LiveBackup) {
+  NanScope();
+
+  v8::Local<v8::Object> nameHandle = args[0].As<v8::Object>();
+
+  if (nameHandle->IsNull()
+      || nameHandle->IsUndefined()
+      || nameHandle->IsFunction()) {
+    return NanThrowError("liveBackup() requires a valid `name` argument");
+  }
+
+  LD_METHOD_SETUP_COMMON(liveBackup, -1, 1);
+
+  LD_STRING_OR_BUFFER_TO_SLICE(name, nameHandle, name);
+
+  LiveBackupWorker* worker  = new LiveBackupWorker(
+      database
+    , new NanCallback(callback)
+    , name
+    , nameHandle
+  );
+  NanAsyncQueueWorker(worker);
+
+  NanReturnUndefined();
+}
 
 } // namespace leveldown

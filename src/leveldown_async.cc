@@ -3,7 +3,7 @@
  * MIT License <https://github.com/level/leveldown/blob/master/LICENSE.md>
  */
 
-#include <leveldb/db.h>
+#include <hyperleveldb/db.h>
 
 #include "leveldown.h"
 #include "leveldown_async.h"

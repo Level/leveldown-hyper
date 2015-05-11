@@ -10,9 +10,9 @@
 #include <vector>
 #include <node.h>
 
-#include <leveldb/cache.h>
-#include <leveldb/db.h>
-#include <leveldb/filter_policy.h>
+#include <hyperleveldb/cache.h>
+#include <hyperleveldb/db.h>
+#include <hyperleveldb/filter_policy.h>
 #include <nan.h>
 
 #include "leveldown.h"
@@ -70,6 +70,7 @@ public:
   uint64_t ApproximateSizeFromDatabase (const leveldb::Range* range);
   void GetPropertyFromDatabase (const leveldb::Slice& property, std::string* value);
   leveldb::Iterator* NewIterator (leveldb::ReadOptions* options);
+  leveldb::Status LiveBackup (const leveldb::Slice& name);
   const leveldb::Snapshot* NewSnapshot ();
   void ReleaseSnapshot (const leveldb::Snapshot* snapshot);
   void CloseDatabase ();
@@ -96,13 +97,14 @@ private:
   static NAN_METHOD(Open);
   static NAN_METHOD(Close);
   static NAN_METHOD(Put);
-  static NAN_METHOD(Delete);
   static NAN_METHOD(Get);
+  static NAN_METHOD(Delete);
   static NAN_METHOD(Batch);
-  static NAN_METHOD(Write);
-  static NAN_METHOD(Iterator);
   static NAN_METHOD(ApproximateSize);
   static NAN_METHOD(GetProperty);
+  static NAN_METHOD(Write);
+  static NAN_METHOD(Iterator);
+  static NAN_METHOD(LiveBackup);
 };
 
 } // namespace leveldown
