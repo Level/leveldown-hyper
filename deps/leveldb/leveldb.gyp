@@ -68,8 +68,6 @@
                 '-fno-builtin-memcmp'
               , '-fPIC'
             ]
-          , 'cflags': [ '-std=c++0x' ]
-          , 'cflags!': [ '-fno-tree-vrp' ]
         }]
       , ['OS != "win" and OS != "freebsd"', {
             'cflags': [
@@ -137,6 +135,7 @@
                   , '-Wno-unused-variable'
                   , '-Wno-unused-function'
                 ]
+              , 'GCC_ENABLE_CPP_RTTI': '-frtti'
             }
         }]
     ]
