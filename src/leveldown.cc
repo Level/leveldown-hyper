@@ -70,6 +70,6 @@ void Init (v8::Handle<v8::Object> target) {
   target->Set(NanNew("leveldown"), leveldown);
 }
 
-NODE_MODULE(leveldown, Init)
+NODE_MODULE(leveldownhyper, Init)
 
 } // namespace leveldown
