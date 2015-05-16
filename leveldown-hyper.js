@@ -56,17 +56,17 @@ LevelDOWNHyper.prototype.getProperty = function (property) {
   return this.binding.getProperty(property)
 }
 
-LevelDOWNHyper.prototype.liveBackup = function (location, callback) {
+LevelDOWNHyper.prototype.liveBackup = function (name, callback) {
   if (arguments.length < 2)
-    throw new Error('liveBackup() requires `location` and `callback` arguments')
+    throw new Error('liveBackup() requires `name` and `callback` arguments')
 
-  if (typeof location != 'string')
-    throw new Error('liveBackup() requires a location string argument')
+  if (typeof name != 'string')
+    throw new Error('liveBackup() requires a name string argument')
 
   if (typeof callback != 'function')
     throw new Error('liveBackup() requires a callback function argument')
 
-  this.binding.liveBackup(location, callback)
+  this.binding.liveBackup(name, callback)
 }
 
 LevelDOWNHyper.prototype._iterator = function (options) {

@@ -27,11 +27,10 @@ test('setUp db', function (t) {
 })
 
 test('liveBackup', function (t) {
-  t.throws(db.liveBackup.bind(db), /requires `location` and `callback`/)
-  t.throws(db.liveBackup.bind(db, null, null), /requires a location string argument/)
-  t.throws(db.liveBackup.bind(db, 'a string'), /requires `location` and `callback`/)
-  t.throws(db.liveBackup.bind(db, 'a string', null), /requires a callback function argument/)
-  t.doesNotThrow(db.liveBackup.bind(db, 'a string', function () {}))
+  t.throws(db.liveBackup.bind(db), /requires `name` and `callback` arguments/)
+  t.throws(db.liveBackup.bind(db, null, null), /requires a name string argument/)
+  t.throws(db.liveBackup.bind(db, 'astring'), /requires `name` and `callback`/)
+  t.throws(db.liveBackup.bind(db, 'astring', null), /requires a callback function argument/)
   var now = String(Date.now())
   db.liveBackup(now, function (err) {
     t.ok(!err, 'no liveBackup error')
