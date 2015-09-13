@@ -166,7 +166,7 @@ class LiveBackupWorker : public AsyncWorker {
 public:
   LiveBackupWorker (
       Database *database
-    , NanCallback *callback
+    , Nan::Callback *callback
     , leveldb::Slice name
     , v8::Local<v8::Object> &nameHandle
   );

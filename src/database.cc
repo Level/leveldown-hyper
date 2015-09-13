@@ -490,14 +490,12 @@ NAN_METHOD(Database::Iterator) {
 }
 
 NAN_METHOD(Database::LiveBackup) {
-  NanScope();
-
-  v8::Local<v8::Object> nameHandle = args[0].As<v8::Object>();
+  v8::Local<v8::Object> nameHandle = info[0].As<v8::Object>();
 
   if (nameHandle->IsNull()
       || nameHandle->IsUndefined()
       || nameHandle->IsFunction()) {
-    return NanThrowError("liveBackup() requires a valid `name` argument");
+    return Nan::ThrowError("liveBackup() requires a valid `name` argument");
   }
 
   LD_METHOD_SETUP_COMMON(liveBackup, -1, 1);
@@ -506,13 +504,11 @@ NAN_METHOD(Database::LiveBackup) {
 
   LiveBackupWorker* worker  = new LiveBackupWorker(
       database
-    , new NanCallback(callback)
+    , new Nan::Callback(callback)
     , name
     , nameHandle
   );
-  NanAsyncQueueWorker(worker);
-
-  NanReturnUndefined();
+  Nan::AsyncQueueWorker(worker);
 }
 
 } // namespace leveldown

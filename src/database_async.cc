@@ -269,13 +269,14 @@ void ApproximateSizeWorker::HandleOKCallback () {
 
 LiveBackupWorker::LiveBackupWorker (
     Database *database
-  , NanCallback *callback
+  , Nan::Callback *callback
   , leveldb::Slice name
   , v8::Local<v8::Object> &nameHandle
 ) : AsyncWorker(database, callback)
   , name(name)
 {
-  NanScope();
+  Nan::HandleScope scope;
+
   SaveToPersistent("name", nameHandle);
 };
 
@@ -286,7 +287,8 @@ void LiveBackupWorker::Execute () {
 }
 
 void LiveBackupWorker::WorkComplete () {
-  NanScope();
+  Nan::HandleScope scope;
+
   DisposeStringOrBufferFromSlice(GetFromPersistent("name"), name);
   AsyncWorker::WorkComplete();
 }
