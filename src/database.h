@@ -23,13 +23,13 @@ namespace leveldown {
 NAN_METHOD(LevelDOWN);
 
 struct Reference {
-  v8::Persistent<v8::Object> handle;
+  Nan::Persistent<v8::Object> handle;
   leveldb::Slice slice;
 
   Reference(v8::Local<v8::Value> obj, leveldb::Slice slice) : slice(slice) {
-    v8::Local<v8::Object> _obj = NanNew<v8::Object>();
-    _obj->Set(NanNew("obj"), obj);
-    NanAssignPersistent(handle, _obj);
+    v8::Local<v8::Object> _obj = Nan::New<v8::Object>();
+    _obj->Set(Nan::New("obj").ToLocalChecked(), obj);
+    handle.Reset(_obj);
   };
 };
 
@@ -43,12 +43,12 @@ static inline void ClearReferences (std::vector<Reference *> *references) {
   delete references;
 }
 
-class Database : public node::ObjectWrap {
+class Database : public Nan::ObjectWrap {
 public:
   static void Init ();
-  static v8::Handle<v8::Value> NewInstance (v8::Local<v8::String> &location);
+  static v8::Local<v8::Value> NewInstance (v8::Local<v8::String> &location);
 
-  leveldb::Status OpenDatabase (leveldb::Options* options, std::string location);
+  leveldb::Status OpenDatabase (leveldb::Options* options);
   leveldb::Status PutToDatabase (
       leveldb::WriteOptions* options
     , leveldb::Slice key
@@ -74,19 +74,18 @@ public:
   const leveldb::Snapshot* NewSnapshot ();
   void ReleaseSnapshot (const leveldb::Snapshot* snapshot);
   void CloseDatabase ();
-  NanUtf8String* Location();
   void ReleaseIterator (uint32_t id);
 
-  Database (NanUtf8String* location);
+  Database (const v8::Local<v8::Value>& from);
   ~Database ();
 
 private:
+  Nan::Utf8String* location;
   leveldb::DB* db;
-  const leveldb::FilterPolicy* filterPolicy;
-  leveldb::Cache* blockCache;
-  NanUtf8String* location;
   uint32_t currentIteratorId;
   void(*pendingCloseWorker);
+  leveldb::Cache* blockCache;
+  const leveldb::FilterPolicy* filterPolicy;
 
   std::map< uint32_t, leveldown::Iterator * > iterators;
 

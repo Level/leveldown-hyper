@@ -19,7 +19,7 @@ namespace leveldown {
 class Database;
 class AsyncWorker;
 
-class Iterator : public node::ObjectWrap {
+class Iterator : public Nan::ObjectWrap {
 public:
   static void Init ();
   static v8::Local<v8::Object> NewInstance (
@@ -62,6 +62,7 @@ private:
   leveldb::ReadOptions* options;
   leveldb::Slice* start;
   std::string* end;
+  bool seeking;
   bool reverse;
   bool keys;
   bool values;
@@ -81,12 +82,13 @@ public:
   AsyncWorker* endWorker;
 
 private:
-  v8::Persistent<v8::Object> persistentHandle;
+  Nan::Persistent<v8::Object> persistentHandle;
 
   bool Read (std::string& key, std::string& value);
   bool GetIterator ();
 
   static NAN_METHOD(New);
+  static NAN_METHOD(Seek);
   static NAN_METHOD(Next);
   static NAN_METHOD(End);
 };
