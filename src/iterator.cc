@@ -399,7 +399,7 @@ NAN_METHOD(Iterator::New) {
       if (StringOrBufferLength(endBuffer) > 0) {
         LD_STRING_OR_BUFFER_TO_COPY(_end, endBuffer, end)
         end = new std::string(_endCh_, _endSz_);
-        delete _endCh_;
+        delete[] _endCh_;
       }
     }
 
@@ -469,7 +469,7 @@ NAN_METHOD(Iterator::New) {
       if (StringOrBufferLength(gtBuffer) > 0) {
         LD_STRING_OR_BUFFER_TO_COPY(_gt, gtBuffer, gt)
         gt = new std::string(_gtCh_, _gtSz_);
-        delete _gtCh_;
+        delete[] _gtCh_;
         if (!reverse) {
           if (startStr != NULL) {
             delete[] startStr;
@@ -492,7 +492,7 @@ NAN_METHOD(Iterator::New) {
       if (StringOrBufferLength(gteBuffer) > 0) {
         LD_STRING_OR_BUFFER_TO_COPY(_gte, gteBuffer, gte)
         gte = new std::string(_gteCh_, _gteSz_);
-        delete _gteCh_;
+        delete[] _gteCh_;
         if (!reverse) {
           if (startStr != NULL) {
             delete[] startStr;
