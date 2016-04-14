@@ -32,7 +32,7 @@
     "bindings": "~1.2.1",
     "fast-future": "~1.0.0",
     "nan": "~2.2.1",
-    "prebuild": "^2.5.0"
+    "prebuild": "^4.1.1"
   },
   "devDependencies": {
     "du": "~0.1.0",
@@ -47,10 +47,10 @@
     "tape": "~4.0.0"
   },
   "scripts": {
-    "install": "prebuild --download",
+    "install": "prebuild --install",
     "test": "tape test/*-test.js | faucet",
     "rebuild": "prebuild --compile",
-    "prebuild": "prebuild --verbose --strip"
+    "prebuild": "prebuild --all --verbose --strip"
   },
   "license": "MIT",
   "gypfile": true
