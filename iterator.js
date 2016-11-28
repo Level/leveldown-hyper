@@ -14,8 +14,6 @@ function Iterator (db, options) {
 util.inherits(Iterator, AbstractIterator)
 
 Iterator.prototype.seek = function (key) {
-  if (typeof key !== 'string')
-    throw new Error('seek requires a string key')
   this.cache = null
   this.binding.seek(key)
 }
