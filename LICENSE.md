@@ -1,7 +1,7 @@
 The MIT License (MIT)
 =====================
 
-Copyright (c) 2012-2015 LevelDOWNHyper contributors
+Copyright (c) 2012-2017 LevelDOWNHyper contributors
 ---------------------------
 
 *LevelDOWNHyper contributors listed at <https://github.com/level/community#contributors>*
