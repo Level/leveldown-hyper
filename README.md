@@ -6,7 +6,7 @@ LevelDOWNHyper
 A Low-level Node.js LevelDB binding
 -------------------------
 
-[![Build Status](https://secure.travis-ci.org/Level/leveldown-hyper.png)](http://travis-ci.org/Level/leveldown-hyper)
+[![Build Status](https://secure.travis-ci.org/Level/leveldown-hyper.png)](http://travis-ci.org/Level/leveldown-hyper) [![Greenkeeper badge](https://badges.greenkeeper.io/Level/leveldown-hyper.svg)](https://greenkeeper.io/)
 
 [![NPM](https://nodei.co/npm/leveldown-hyper.png?stars&downloads&downloadRank)](https://nodei.co/npm/leveldown-hyper/) [![NPM](https://nodei.co/npm-dl/leveldown-hyper.png?months=6&height=3)](https://nodei.co/npm/leveldown-hyper/)
 
