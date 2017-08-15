@@ -42,6 +42,7 @@
     "node-uuid": "~1.4.3",
     "optimist": "~0.6.1",
     "prebuild": "^6.2.1",
+    "prebuild-ci": "^2.2.3",
     "readfiletree": "~0.0.1",
     "rimraf": "~2.6.1",
     "slump": "~2.0.0",
@@ -49,7 +50,7 @@
   },
   "scripts": {
     "install": "prebuild-install || node-gyp rebuild",
-    "test": "tape test/*-test.js | faucet",
+    "test": "(tape test/*-test.js | faucet) && prebuild-ci",
     "rebuild": "node-gyp rebuild",
     "prebuild": "prebuild --all --verbose --strip"
   },
