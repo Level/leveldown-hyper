@@ -2,9 +2,6 @@ sudo: false
 
 language: node_js
 
-env:
-  - CXX=g++-4.8
-
 addons:
   apt:
     sources:
@@ -13,8 +10,12 @@ addons:
       - g++-4.8
 
 before_install:
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export CXX=g++-4.8; fi
   - export JOBS=max
-  - export prebuild_compile=true
+
+os:
+  - osx
+  - linux
 
 node_js:
   - "8"

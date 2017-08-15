@@ -1,7 +1,7 @@
 {
   "name": "leveldown-hyper",
   "description": "A Node.js LevelDB binding, primary backend for LevelUP (HyperDex fork)",
-  "version": "1.1.2",
+  "version": "1.1.3-0",
   "contributors": [
     "Rod Vagg <r@va.gg> (https://github.com/rvagg)",
     "John Chesley <john@chesl.es> (https://github.com/chesles/)",
@@ -32,7 +32,7 @@
     "bindings": "~1.3.0",
     "fast-future": "~1.0.0",
     "nan": "^2.6.2",
-    "prebuild": "^6.2.1"
+    "prebuild-install": "^2.2.2"
   },
   "devDependencies": {
     "du": "~0.1.0",
@@ -41,15 +41,17 @@
     "monotonic-timestamp": "~0.0.8",
     "node-uuid": "~1.4.3",
     "optimist": "~0.6.1",
+    "prebuild": "^6.2.1",
+    "prebuild-ci": "^2.2.3",
     "readfiletree": "~0.0.1",
     "rimraf": "~2.6.1",
     "slump": "~2.0.0",
     "tape": "~4.8.0"
   },
   "scripts": {
-    "install": "prebuild --install",
-    "test": "tape test/*-test.js | faucet",
-    "rebuild": "prebuild --compile",
+    "install": "prebuild-install || node-gyp rebuild",
+    "test": "(tape test/*-test.js | faucet) && prebuild-ci",
+    "rebuild": "node-gyp rebuild",
     "prebuild": "prebuild --all --verbose --strip"
   },
   "license": "MIT",
