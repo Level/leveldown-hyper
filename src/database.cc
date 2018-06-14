@@ -466,7 +466,7 @@ NAN_METHOD(Database::Iterator) {
   // each iterator gets a unique id for this Database, so we can
   // easily store & lookup on our `iterators` map
   uint32_t id = database->currentIteratorId++;
-  v8::TryCatch try_catch;
+  Nan::TryCatch try_catch;
   v8::Local<v8::Object> iteratorHandle = Iterator::NewInstance(
       info.This()
     , Nan::New<v8::Number>(id)
