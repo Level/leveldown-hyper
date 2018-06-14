@@ -162,13 +162,19 @@ NAN_METHOD(Database::New) {
 v8::Local<v8::Value> Database::NewInstance (v8::Local<v8::String> &location) {
   Nan::EscapableHandleScope scope;
 
+  Nan::MaybeLocal<v8::Object> maybeInstance;
   v8::Local<v8::Object> instance;
 
   v8::Local<v8::FunctionTemplate> constructorHandle =
       Nan::New<v8::FunctionTemplate>(database_constructor);
 
   v8::Local<v8::Value> argv[] = { location };
-  instance = constructorHandle->GetFunction()->NewInstance(1, argv);
+  maybeInstance = Nan::NewInstance(constructorHandle->GetFunction(), 1, argv);
+
+  if (maybeInstance.IsEmpty())
+    Nan::ThrowError("Could not create new Database instance");
+  else
+    instance = maybeInstance.ToLocalChecked();
 
   return scope.Escape(instance);
 }
