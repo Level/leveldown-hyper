@@ -30,7 +30,7 @@ OpenWorker::OpenWorker (
   , uint32_t blockSize
   , uint32_t maxOpenFiles
   , uint32_t blockRestartInterval
-) : AsyncWorker(database, callback)
+) : AsyncWorker(database, callback, "leveldown-hyper:db.open")
 {
   options = new leveldb::Options();
   options->block_cache            = blockCache;
@@ -59,7 +59,7 @@ void OpenWorker::Execute () {
 CloseWorker::CloseWorker (
     Database *database
   , Nan::Callback *callback
-) : AsyncWorker(database, callback)
+) : AsyncWorker(database, callback, "leveldown-hyper:db.close")
 {};
 
 CloseWorker::~CloseWorker () {}
@@ -80,9 +80,10 @@ void CloseWorker::WorkComplete () {
 IOWorker::IOWorker (
     Database *database
   , Nan::Callback *callback
+  , const char *resource_name
   , leveldb::Slice key
   , v8::Local<v8::Object> &keyHandle
-) : AsyncWorker(database, callback)
+) : AsyncWorker(database, callback, resource_name)
   , key(key)
 {
   Nan::HandleScope scope;
@@ -108,7 +109,7 @@ ReadWorker::ReadWorker (
   , bool asBuffer
   , bool fillCache
   , v8::Local<v8::Object> &keyHandle
-) : IOWorker(database, callback, key, keyHandle)
+) : IOWorker(database, callback, "leveldown-hyper:db.get", key, keyHandle)
   , asBuffer(asBuffer)
 {
   Nan::HandleScope scope;
@@ -142,7 +143,7 @@ void ReadWorker::HandleOKCallback () {
       Nan::Null()
     , returnValue
   };
-  callback->Call(2, argv);
+  callback->Call(2, argv, async_resource);
 }
 
 /** DELETE WORKER **/
@@ -153,7 +154,8 @@ DeleteWorker::DeleteWorker (
   , leveldb::Slice key
   , bool sync
   , v8::Local<v8::Object> &keyHandle
-) : IOWorker(database, callback, key, keyHandle)
+  , const char *resource_name
+) : IOWorker(database, callback, resource_name, key, keyHandle)
 {
   Nan::HandleScope scope;
 
@@ -180,7 +182,7 @@ WriteWorker::WriteWorker (
   , bool sync
   , v8::Local<v8::Object> &keyHandle
   , v8::Local<v8::Object> &valueHandle
-) : DeleteWorker(database, callback, key, sync, keyHandle)
+) : DeleteWorker(database, callback, key, sync, keyHandle, "leveldown-hyper:db.put")
   , value(value)
 {
   Nan::HandleScope scope;
@@ -208,7 +210,7 @@ BatchWorker::BatchWorker (
   , Nan::Callback *callback
   , leveldb::WriteBatch* batch
   , bool sync
-) : AsyncWorker(database, callback)
+) : AsyncWorker(database, callback, "leveldown-hyper:db.batch")
   , batch(batch)
 {
   options = new leveldb::WriteOptions();
@@ -233,7 +235,7 @@ ApproximateSizeWorker::ApproximateSizeWorker (
   , leveldb::Slice end
   , v8::Local<v8::Object> &startHandle
   , v8::Local<v8::Object> &endHandle
-) : AsyncWorker(database, callback)
+) : AsyncWorker(database, callback, "leveldown-hyper:db.approximateSize")
   , range(start, end)
 {
   Nan::HandleScope scope;
@@ -264,7 +266,7 @@ void ApproximateSizeWorker::HandleOKCallback () {
       Nan::Null()
     , returnValue
   };
-  callback->Call(2, argv);
+  callback->Call(2, argv, async_resource);
 }
 
 LiveBackupWorker::LiveBackupWorker (
@@ -272,7 +274,7 @@ LiveBackupWorker::LiveBackupWorker (
   , Nan::Callback *callback
   , leveldb::Slice name
   , v8::Local<v8::Object> &nameHandle
-) : AsyncWorker(database, callback)
+) : AsyncWorker(database, callback, "leveldown-hyper:db.liveBackup")
   , name(name)
 {
   Nan::HandleScope scope;
