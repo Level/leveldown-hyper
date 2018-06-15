@@ -66,20 +66,10 @@ static inline void DisposeStringOrBufferFromSlice(
   }                                                                            \
   leveldb::Slice to(to ## Ch_, to ## Sz_);
 
-#define LD_RETURN_CALLBACK_OR_ERROR(callback, msg)                             \
-  if (!callback.IsEmpty() && callback->IsFunction()) {                         \
-    v8::Local<v8::Value> argv[] = {                                            \
-      Nan::Error(msg)                                                          \
-    };                                                                         \
-    LD_RUN_CALLBACK(callback, 1, argv)                                         \
-    info.GetReturnValue().SetUndefined();                                      \
-    return;                                                                    \
-  }                                                                            \
-  return Nan::ThrowError(msg);
-
-#define LD_RUN_CALLBACK(callback, argc, argv)                                  \
-  Nan::MakeCallback(                                                           \
-      Nan::GetCurrentContext()->Global(), callback, argc, argv);
+#define LD_RUN_CALLBACK(resource, callback, argc, argv)                 \
+  Nan::AsyncResource ar(resource);                                      \
+  ar.runInAsyncScope(Nan::GetCurrentContext()->Global(),                \
+                     callback, argc, argv);
 
 /* LD_METHOD_SETUP_COMMON setup the following objects:
  *  - Database* database

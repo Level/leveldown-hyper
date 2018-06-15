@@ -55,6 +55,7 @@ public:
   IOWorker (
       Database *database
     , Nan::Callback *callback
+    , const char *resource_name
     , leveldb::Slice key
     , v8::Local<v8::Object> &keyHandle
   );
@@ -95,6 +96,7 @@ public:
     , leveldb::Slice key
     , bool sync
     , v8::Local<v8::Object> &keyHandle
+    , const char *resource_name = "leveldown-hyper:db.del"
   );
 
   virtual ~DeleteWorker ();
