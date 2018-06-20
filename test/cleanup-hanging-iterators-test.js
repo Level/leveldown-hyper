@@ -1,6 +1,3 @@
-const test = require('tape')
-const testCommon = require('abstract-leveldown/testCommon')
-const leveldown = require('../')
 const makeTest = require('./make')
 
 makeTest('test ended iterator', function (db, t, done) {

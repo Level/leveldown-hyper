@@ -1,9 +1,5 @@
 const test = require('tape')
 const fs = require('fs')
-const path = require('path')
-const mkfiletree = require('mkfiletree')
-const readfiletree = require('readfiletree')
-const testCommon = require('abstract-leveldown/testCommon')
 const leveldown = require('../')
 const makeTest = require('./make')
 
