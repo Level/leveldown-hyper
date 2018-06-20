@@ -31,7 +31,7 @@ var run = CHAINED
     for (i = 0; i < 100; i++) {
       key = 'long key to test memory usage ' + String(Math.floor(Math.random() * 10000000))
       if (BUFFERS) {
-        key = new Buffer(key)
+        key = Buffer.from(key)
       }
       value = crypto.randomBytes(1024)
       if (!BUFFERS) {
@@ -58,7 +58,7 @@ var run = CHAINED
     for (i = 0; i < 100; i++) {
       key = 'long key to test memory usage ' + String(Math.floor(Math.random() * 10000000))
       if (BUFFERS) {
-        key = new Buffer(key)
+        key = Buffer.from(key)
       }
       value = crypto.randomBytes(1024)
       if (!BUFFERS) {
