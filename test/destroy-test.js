@@ -66,6 +66,7 @@ makeTest('test destroy() cleans and removes only leveldb parts of a dir', functi
     t.notOk(err, 'no error')
     leveldown.destroy(location, function () {
       readfiletree(location, function (err, tree) {
+        t.notOk(err, 'no error')
         t.deepEqual(tree, { 'foo': 'FOO' }, 'non-leveldb files left intact')
         done(false)
       })

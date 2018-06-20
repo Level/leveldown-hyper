@@ -19,6 +19,7 @@ test('setUp db', function (t) {
     db.put(key, value, function (err) {
       t.ok(!err, 'no put error')
       db.get(key, function (err, _value) {
+        t.ok(!err, 'no put error')
         t.equal(_value.toString(), value)
         t.end()
       })
