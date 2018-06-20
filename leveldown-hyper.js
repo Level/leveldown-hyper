@@ -45,7 +45,21 @@ LevelDOWNHyper.prototype._batch = function (operations, options, callback) {
   return this.binding.batch(operations, options, callback)
 }
 
-LevelDOWNHyper.prototype._approximateSize = function (start, end, callback) {
+LevelDOWNHyper.prototype.approximateSize = function (start, end, callback) {
+  if (start == null ||
+      end == null ||
+      typeof start === 'function' ||
+      typeof end === 'function') {
+    throw new Error('approximateSize() requires valid `start`, `end` and `callback` arguments')
+  }
+
+  if (typeof callback !== 'function') {
+    throw new Error('approximateSize() requires a callback argument')
+  }
+
+  start = this._serializeKey(start)
+  end = this._serializeKey(end)
+
   this.binding.approximateSize(start, end, callback)
 }
 

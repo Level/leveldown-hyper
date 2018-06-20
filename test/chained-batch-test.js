@@ -1,6 +1,5 @@
-const test       = require('tape')
-    , testCommon = require('abstract-leveldown/testCommon')
-    , leveldown  = require('../')
-    , abstract   = require('abstract-leveldown/abstract/chained-batch-test')
+const test = require('tape')
+const leveldown = require('..')
+const abstract = require('abstract-leveldown/abstract/chained-batch-test')
 
-abstract.all(leveldown, test, testCommon)
+abstract.all(leveldown, test)
