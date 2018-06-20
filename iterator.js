@@ -22,7 +22,7 @@ Iterator.prototype.seek = function (target) {
   if (typeof target !== 'string' && !Buffer.isBuffer(target)) {
     throw new Error('seek() requires a string or buffer key')
   }
-  if (target.length == 0) {
+  if (target.length === 0) {
     throw new Error('cannot seek() to an empty key')
   }
 
