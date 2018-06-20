@@ -1,11 +1,11 @@
-const test       = require('tape')
-    , testCommon = require('abstract-leveldown/testCommon')
-    , leveldown  = require('../')
-    , fs         = require('fs')
-    , join       = require('path').join
+const test = require('tape'),
+  testCommon = require('abstract-leveldown/testCommon'),
+  leveldown = require('../'),
+  fs = require('fs'),
+  join = require('path').join
 
-var db
-  , location
+var db,
+  location
 
 test('setUp common', testCommon.setUp)
 
@@ -14,8 +14,8 @@ test('setUp db', function (t) {
   db = leveldown(location)
   db.open(function (err) {
     t.ok(!err, 'no error')
-    var key = 'beep'
-      , value = 'boop'
+    var key = 'beep',
+      value = 'boop'
     db.put(key, value, function (err) {
       t.ok(!err, 'no put error')
       db.get(key, function (err, _value) {
