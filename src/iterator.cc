@@ -214,13 +214,13 @@ bool Iterator::IteratorNext (std::vector<std::pair<std::string, std::string> >& 
 
     if (ok) {
       result.push_back(std::make_pair(key, value));
-      size = size + key.size() + value.size();
 
       if (!landed) {
         landed = true;
         return true;
       }
 
+      size = size + key.size() + value.size();
       if (size > highWaterMark)
         return true;
 
@@ -328,6 +328,16 @@ NAN_METHOD(Iterator::Next) {
   }
 
   v8::Local<v8::Function> callback = info[0].As<v8::Function>();
+
+  if (iterator->ended) {
+    if (!callback.IsEmpty() && callback->IsFunction()) {
+      v8::Local<v8::Value> argv[] = { Nan::Error("iterator has ended") };
+      LD_RUN_CALLBACK("leveldown-hyper:iterator.next", callback, 1, argv);
+      info.GetReturnValue().SetUndefined();
+      return;
+    }
+    return Nan::ThrowError("iterator has ended");
+  }
 
   NextWorker* worker = new NextWorker(
       iterator
