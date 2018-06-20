@@ -116,7 +116,3 @@ test('test approximateSize()', function (t) {
     })
   })
 })
-
-test('tearDown', function (t) {
-  db.close(testCommon.tearDown.bind(null, t))
-})
