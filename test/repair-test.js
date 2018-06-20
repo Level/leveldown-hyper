@@ -1,11 +1,11 @@
-const test = require('tape'),
-  fs = require('fs'),
-  path = require('path'),
-  mkfiletree = require('mkfiletree'),
-  readfiletree = require('readfiletree'),
-  testCommon = require('abstract-leveldown/testCommon'),
-  leveldown = require('../'),
-  makeTest = require('./make')
+const test = require('tape')
+const fs = require('fs')
+const path = require('path')
+const mkfiletree = require('mkfiletree')
+const readfiletree = require('readfiletree')
+const testCommon = require('abstract-leveldown/testCommon')
+const leveldown = require('../')
+const makeTest = require('./make')
 
 test('test argument-less repair() throws', function (t) {
   t.throws(leveldown.repair, {

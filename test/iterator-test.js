@@ -1,10 +1,10 @@
-const test = require('tape'),
-  leveldown = require('../'),
-  abstract = require('abstract-leveldown/abstract/iterator-test'),
-  make = require('./make'),
-  iota = require('iota-array'),
-  lexi = require('lexicographic-integer'),
-  util = require('util')
+const test = require('tape')
+const leveldown = require('../')
+const abstract = require('abstract-leveldown/abstract/iterator-test')
+const make = require('./make')
+const iota = require('iota-array')
+const lexi = require('lexicographic-integer')
+const util = require('util')
 
 abstract.all(leveldown, test)
 

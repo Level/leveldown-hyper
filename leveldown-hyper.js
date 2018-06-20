@@ -1,10 +1,8 @@
-const util = require('util'),
-  AbstractLevelDOWN = require('abstract-leveldown').AbstractLevelDOWN,
-
-  binding = require('bindings')('leveldownhyper.node').leveldown,
-
-  ChainedBatch = require('./chained-batch'),
-  Iterator = require('./iterator')
+const util = require('util')
+const AbstractLevelDOWN = require('abstract-leveldown').AbstractLevelDOWN
+const binding = require('bindings')('leveldownhyper.node').leveldown
+const ChainedBatch = require('./chained-batch')
+const Iterator = require('./iterator')
 
 function LevelDOWNHyper (location) {
   if (!(this instanceof LevelDOWNHyper)) {

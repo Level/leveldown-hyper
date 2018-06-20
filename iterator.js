@@ -1,5 +1,5 @@
-const util = require('util'),
-  AbstractIterator = require('abstract-leveldown').AbstractIterator
+const util = require('util')
+const AbstractIterator = require('abstract-leveldown').AbstractIterator
 
 function Iterator (db, options) {
   AbstractIterator.call(this, db)
@@ -32,9 +32,9 @@ Iterator.prototype.seek = function (target) {
 }
 
 Iterator.prototype._next = function (callback) {
-  var that = this,
-    key,
-    value
+  var that = this
+  var key
+  var value
 
   if (this.cache && this.cache.length) {
     key = this.cache.pop()

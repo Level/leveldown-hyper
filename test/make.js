@@ -1,21 +1,21 @@
-const test = require('tape'),
-  testCommon = require('abstract-leveldown/testCommon'),
-  cleanup = testCommon.cleanup,
-  location = testCommon.location,
-  leveldown = require('../')
+const test = require('tape')
+const testCommon = require('abstract-leveldown/testCommon')
+const cleanup = testCommon.cleanup
+const location = testCommon.location
+const leveldown = require('../')
 
 function makeTest (name, testFn) {
   test(name, function (t) {
     cleanup(function () {
-      var loc = location(),
-        db = leveldown(loc),
-        done = function (close) {
-          if (close === false) { return cleanup(t.end.bind(t)) }
-          db.close(function (err) {
-            t.notOk(err, 'no error from close()')
-            cleanup(t.end.bind(t))
-          })
-        }
+      var loc = location()
+      var db = leveldown(loc)
+      var done = function (close) {
+        if (close === false) { return cleanup(t.end.bind(t)) }
+        db.close(function (err) {
+          t.notOk(err, 'no error from close()')
+          cleanup(t.end.bind(t))
+        })
+      }
       db.open(function (err) {
         t.notOk(err, 'no error from open()')
         db.batch([

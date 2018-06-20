@@ -1,12 +1,12 @@
-const BUFFERS = false,
-  CHAINED = false
+const BUFFERS = false
+const CHAINED = false
 
-var leveldown = require('..'),
-  crypto = require('crypto'),
-  assert = require('assert'),
-  writeCount = 0,
-  rssBase,
-  db
+var leveldown = require('..')
+var crypto = require('crypto')
+var assert = require('assert')
+var writeCount = 0
+var rssBase
+var db
 
 function print () {
   if (writeCount % 100 === 0) {
@@ -23,10 +23,10 @@ function print () {
 
 var run = CHAINED
   ? function () {
-    var batch = db.batch(),
-      i = 0,
-      key,
-      value
+    var batch = db.batch()
+    var i = 0
+    var key
+    var value
 
     for (i = 0; i < 100; i++) {
       key = 'long key to test memory usage ' + String(Math.floor(Math.random() * 10000000))
@@ -50,10 +50,10 @@ var run = CHAINED
     print()
   }
   : function () {
-    var batch = [],
-      i,
-      key,
-      value
+    var batch = []
+    var i
+    var key
+    var value
 
     for (i = 0; i < 100; i++) {
       key = 'long key to test memory usage ' + String(Math.floor(Math.random() * 10000000))

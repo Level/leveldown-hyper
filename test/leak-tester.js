@@ -1,11 +1,11 @@
 const BUFFERS = false
 
-var leveldown = require('..'),
-  crypto = require('crypto'),
-  putCount = 0,
-  getCount = 0,
-  rssBase,
-  db
+var leveldown = require('..')
+var crypto = require('crypto')
+var putCount = 0
+var getCount = 0
+var rssBase
+var db
 
 function run () {
   var key = 'long key to test memory usage ' + String(Math.floor(Math.random() * 10000000))
