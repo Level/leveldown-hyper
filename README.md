@@ -33,8 +33,6 @@ See the [contribution guide](https://github.com/Level/community/blob/master/CONT
 
 [MIT](./LICENSE.md) © 2012-present [Contributors](./CONTRIBUTORS.md).
 
-`leveldown-hyper` is licensed under the MIT license. All rights not explicitly granted in the MIT license are reserved. See the included `LICENSE.md` file for more details.
-
 _`leveldown-hyper` builds on the excellent work of the [`HyperLevelDB`](https://github.com/rescrv/HyperLevelDB) team and the LevelDB and Snappy teams from Google and additional contributors. HyperLevelDB, LevelDB and Snappy are issued under the [New BSD Licence](http://opensource.org/licenses/BSD-3-Clause)._
 
 [level-badge]: http://leveldb.org/img/badge.svg
