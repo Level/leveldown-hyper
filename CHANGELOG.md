@@ -18,6 +18,7 @@
 ### Added
 * Add node 9 and 10 to Travis (@ralphtheninja)
 * Add `standard` (@ralphtheninja)
+* Add `UPGRADING.md` (@ralphtheninja)
 
 ### Removed
 * Remove node 0.12, 4, 5 and 7 from Travis (@ralphtheninja)

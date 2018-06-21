@@ -11,6 +11,8 @@
 
 `leveldown` can be considered an upstream repository to `leveldown-hyper` and any common logic and bug fixes will be merged from upstream into this repository.
 
+**If you are upgrading:** please see [UPGRADING.md](UPGRADING.md).
+
 ### `db.liveBackup(name, callback)`
 <code>liveBackup()</code> is an instance method on an existing database object, used to make a live backup of the current state of the database.
 
