@@ -26,6 +26,7 @@
 ### Removed
 
 -   Remove node 0.12, 4, 5 and 7 from Travis ([**@ralphtheninja**](https://github.com/ralphtheninja))
+-   Remove g++-4.8 addon from Travis ([**@ralphtheninja**](https://github.com/ralphtheninja))
 
 ### Fixed
 
