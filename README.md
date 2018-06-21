@@ -30,7 +30,7 @@ See the [contribution guide](https://github.com/Level/community/blob/master/CONT
 
 ## License
 
-Copyright &copy; 2012-present `leveldown-hyper` [contributors](https://github.com/level/community#contributors).
+[MIT](./LICENSE.md) © 2012-present [Contributors](./CONTRIBUTORS.md).
 
 `leveldown-hyper` is licensed under the MIT license. All rights not explicitly granted in the MIT license are reserved. See the included `LICENSE.md` file for more details.
 
