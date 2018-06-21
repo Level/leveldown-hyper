@@ -11,7 +11,10 @@
 
 `leveldown` can be considered an upstream repository to `leveldown-hyper` and any common logic and bug fixes will be merged from upstream into this repository.
 
+**If you are upgrading:** please see [UPGRADING.md](UPGRADING.md).
+
 ### `db.liveBackup(name, callback)`
+
 <code>liveBackup()</code> is an instance method on an existing database object, used to make a live backup of the current state of the database.
 
 The `name` parameter is a `String`. A successful live backup will result in a backup folder named `backup-:name` inside the `location` folder of the current database.
@@ -28,10 +31,8 @@ See the [contribution guide](https://github.com/Level/community/blob/master/CONT
 
 ## License
 
-Copyright &copy; 2012-present `leveldown-hyper` [contributors](https://github.com/level/community#contributors).
+[MIT](./LICENSE.md) © 2012-present [Contributors](./CONTRIBUTORS.md).
 
-`leveldown-hyper` is licensed under the MIT license. All rights not explicitly granted in the MIT license are reserved. See the included `LICENSE.md` file for more details.
-
-*`leveldown-hyper` builds on the excellent work of the [`HyperLevelDB`](https://github.com/rescrv/HyperLevelDB) team and the LevelDB and Snappy teams from Google and additional contributors. HyperLevelDB, LevelDB and Snappy are issued under the [New BSD Licence](http://opensource.org/licenses/BSD-3-Clause).*
+_`leveldown-hyper` builds on the excellent work of the [`HyperLevelDB`](https://github.com/rescrv/HyperLevelDB) team and the LevelDB and Snappy teams from Google and additional contributors. HyperLevelDB, LevelDB and Snappy are issued under the [New BSD Licence](http://opensource.org/licenses/BSD-3-Clause)._
 
 [level-badge]: http://leveldb.org/img/badge.svg
