@@ -38,6 +38,7 @@
     "du": "~0.1.0",
     "faucet": "0.0.1",
     "iota-array": "~1.0.0",
+    "level-community": "^3.0.0",
     "lexicographic-integer": "~1.1.0",
     "mkfiletree": "~1.0.1",
     "monotonic-timestamp": "~0.0.8",
@@ -46,6 +47,9 @@
     "prebuild": "^7.0.0",
     "prebuild-ci": "^2.2.3",
     "readfiletree": "~0.0.1",
+    "remark-cli": "^5.0.0",
+    "remark-git-contributors": "^0.2.1",
+    "remark-github": "^7.0.3",
     "rimraf": "~2.6.1",
     "slump": "~2.0.0",
     "standard": "^11.0.1",
@@ -55,7 +59,19 @@
     "install": "prebuild-install || node-gyp rebuild",
     "test": "standard && (tape test/*-test.js | faucet) && prebuild-ci",
     "rebuild": "node-gyp rebuild",
-    "prebuild": "prebuild --all --verbose --strip"
+    "prebuild": "prebuild --all --verbose --strip",
+    "remark": "remark README.md CONTRIBUTORS.md CHANGELOG.md UPGRADING.md -o"
+  },
+  "remarkConfig": {
+    "plugins": [
+      [
+        "remark-git-contributors",
+        "level-community"
+      ],
+      [
+        "remark-github"
+      ]
+    ]
   },
   "license": "MIT",
   "gypfile": true
