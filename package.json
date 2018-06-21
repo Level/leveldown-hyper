@@ -59,5 +59,8 @@
     ]
   },
   "license": "MIT",
-  "gypfile": true
+  "gypfile": true,
+  "engines": {
+    "node": ">=6"
+  }
 }

@@ -2,6 +2,7 @@
 
 [![level badge][level-badge]](https://github.com/level/awesome)
 [![npm](https://img.shields.io/npm/v/leveldown-hyper.svg)](https://www.npmjs.com/package/leveldown-hyper)
+![Node version](https://img.shields.io/node/v/leveldown-hyper.svg)
 [![Build Status](https://img.shields.io/travis/Level/leveldown-hyper.svg)](http://travis-ci.org/Level/leveldown-hyper)
 [![dependencies](https://david-dm.org/Level/leveldown-hyper.svg)](https://david-dm.org/level/leveldown-hyper)
 [![npm](https://img.shields.io/npm/dm/leveldown-hyper.svg)](https://www.npmjs.com/package/leveldown-hyper)
