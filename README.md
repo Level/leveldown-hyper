@@ -6,6 +6,7 @@
 [![Build Status](https://img.shields.io/travis/Level/leveldown-hyper.svg)](http://travis-ci.org/Level/leveldown-hyper)
 [![dependencies](https://david-dm.org/Level/leveldown-hyper.svg)](https://david-dm.org/level/leveldown-hyper)
 [![npm](https://img.shields.io/npm/dm/leveldown-hyper.svg)](https://www.npmjs.com/package/leveldown-hyper)
+[![Coverage Status](https://coveralls.io/repos/github/Level/leveldown-hyper/badge.svg)](https://coveralls.io/github/Level/leveldown-hyper)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 `leveldown-hyper` is a fork of `leveldown` and uses [`HyperLevelDB`](https://github.com/rescrv/HyperLevelDB) as backend. It extends the `leveldown` api with functionality to do live backups. This README only documents the `liveBackup()` method. For a complete reference we refer to [`leveldown`](https://github.com/Level/leveldown).

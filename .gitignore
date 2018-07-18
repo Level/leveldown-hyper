@@ -13,3 +13,4 @@ bench/
 *.lastbuildstate
 npm-debug.log
 prebuilds/
+.nyc_output/
