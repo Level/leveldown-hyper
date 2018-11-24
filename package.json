@@ -35,7 +35,7 @@
     "prebuild-ci": "^2.2.3",
     "readfiletree": "~0.0.1",
     "remark-cli": "^5.0.0",
-    "remark-git-contributors": "^0.2.1",
+    "remark-git-contributors": "^0.3.0",
     "remark-github": "^7.0.3",
     "rimraf": "~2.6.1",
     "slump": "~2.0.0",
