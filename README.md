@@ -23,18 +23,18 @@ The `name` parameter is a `String`. A successful live backup will result in a ba
 
 The `callback` function will be called with no arguments when a live backup was successful, or with a single `error` argument if the backup operation failed for any reason.
 
-## Community
+## Contributing
 
-`leveldown-hyper` is an **OPEN Open Source Project**. This means that:
+[`Level/leveldown-hyper`](https://github.com/Level/leveldown-hyper) is an **OPEN Open Source Project**. This means that:
 
 > Individuals making significant and valuable contributions are given commit-access to the project to contribute as they see fit. This project is more like an open wiki than a standard guarded open source project.
 
-See the [contribution guide](https://github.com/Level/community/blob/master/CONTRIBUTING.md) for more details.
+See the [Contribution Guide](https://github.com/Level/community/blob/master/CONTRIBUTING.md) for more details.
 
 ## License
 
-[MIT](./LICENSE.md) © 2012-present [Contributors](./CONTRIBUTORS.md).
+[MIT](LICENSE.md) © 2012-present [Contributors](CONTRIBUTORS.md).
 
-_`leveldown-hyper` builds on the excellent work of the [`HyperLevelDB`](https://github.com/rescrv/HyperLevelDB) team and the LevelDB and Snappy teams from Google and additional contributors. HyperLevelDB, LevelDB and Snappy are issued under the [New BSD Licence](http://opensource.org/licenses/BSD-3-Clause)._
+_`leveldown-hyper` builds on the excellent work of the [`HyperLevelDB`](https://github.com/rescrv/HyperLevelDB) team and the LevelDB and Snappy teams from Google and additional contributors. HyperLevelDB, LevelDB and Snappy are issued under the [New BSD License](http://opensource.org/licenses/BSD-3-Clause)._
 
 [level-badge]: http://leveldb.org/img/badge.svg
