@@ -6,10 +6,11 @@
   "main": "leveldown-hyper.js",
   "scripts": {
     "install": "prebuild-install || node-gyp rebuild",
-    "test": "standard && nyc tape test/*-test.js && prebuild-ci",
+    "test": "standard && hallmark && nyc tape test/*-test.js && prebuild-ci",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "rebuild": "node-gyp rebuild",
-    "prebuild": "prebuild --all --verbose --strip"
+    "prebuild": "prebuild --all --verbose --strip",
+    "hallmark": "hallmark --fix"
   },
   "dependencies": {
     "abstract-leveldown": "~5.0.0",
