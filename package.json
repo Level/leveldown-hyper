@@ -23,6 +23,7 @@
     "coveralls": "^3.0.2",
     "du": "~0.1.0",
     "faucet": "0.0.1",
+    "hallmark": "^0.1.0",
     "iota-array": "~1.0.0",
     "level-community": "^3.0.0",
     "lexicographic-integer": "~1.1.0",
