@@ -27,21 +27,21 @@
     "du": "~0.1.0",
     "faucet": "0.0.1",
     "hallmark": "^0.1.0",
-    "iota-array": "~1.0.0",
+    "iota-array": "^1.0.0",
     "level-community": "^3.0.0",
-    "lexicographic-integer": "~1.1.0",
-    "mkfiletree": "~1.0.1",
+    "lexicographic-integer": "^1.1.0",
+    "mkfiletree": "^1.0.1",
     "monotonic-timestamp": "~0.0.8",
-    "node-uuid": "~1.4.3",
+    "node-uuid": "^1.4.3",
     "nyc": "^12.0.2",
     "optimist": "~0.6.1",
     "prebuild": "^8.0.0",
     "prebuild-ci": "^2.2.3",
     "readfiletree": "~0.0.1",
-    "rimraf": "~2.6.1",
-    "slump": "~3.0.0",
+    "rimraf": "^2.6.1",
+    "slump": "^3.0.0",
     "standard": "^12.0.0",
-    "tape": "~4.9.0"
+    "tape": "^4.9.0"
   },
   "hallmark": {
     "community": "level-community"
