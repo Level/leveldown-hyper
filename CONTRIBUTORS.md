@@ -8,9 +8,9 @@
 | **Julian Gruber**       | [**@juliangruber**](https://github.com/juliangruber)   | [**@juliangruber@twitter**](https://twitter.com/juliangruber)       |
 | **Dominic Tarr**        | [**@dominictarr**](https://github.com/dominictarr)     | [**@dominictarr@twitter**](https://twitter.com/dominictarr)         |
 | **Yichao 'Peak' Ji**    | [**@peakji**](https://github.com/peakji)               |                                                                     |
-| **Vincent Weevers**     | [**@vweevers**](https://github.com/vweevers)           | [**@vweevers@twitter**](https://twitter.com/vweevers)               |
-| **Christopher Jeffrey** |                                                        |                                                                     |
 | **Raynos**              |                                                        |                                                                     |
+| **Christopher Jeffrey** |                                                        |                                                                     |
+| **Vincent Weevers**     | [**@vweevers**](https://github.com/vweevers)           | [**@vweevers@twitter**](https://twitter.com/vweevers)               |
 | **Max Ogden**           | [**@maxogden**](https://github.com/maxogden)           | [**@maxogden@twitter**](https://twitter.com/maxogden)               |
 | **Geoff Greer**         | [**@ggreer**](https://github.com/ggreer)               |                                                                     |
 | **Matteo Collina**      | [**@mcollina**](https://github.com/mcollina)           | [**@matteocollina@twitter**](https://twitter.com/matteocollina)     |
