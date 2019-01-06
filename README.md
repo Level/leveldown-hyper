@@ -1,10 +1,9 @@
 # leveldown-hyper
 
-[![level badge][level-badge]](https://github.com/level/awesome)
+[![level badge][level-badge]](https://github.com/Level/awesome)
 [![npm](https://img.shields.io/npm/v/leveldown-hyper.svg?label=&logo=npm)](https://www.npmjs.com/package/leveldown-hyper)
 [![Node version](https://img.shields.io/node/v/leveldown-hyper.svg)](https://www.npmjs.com/package/leveldown-hyper)
-[![Build Status](https://img.shields.io/travis/Level/leveldown-hyper.svg?logo=travis&label=)](http://travis-ci.org/Level/leveldown-hyper)
-[![dependencies](https://david-dm.org/Level/leveldown-hyper.svg)](https://david-dm.org/level/leveldown-hyper)
+[![Travis](https://img.shields.io/travis/Level/leveldown-hyper.svg?logo=travis&label=)](https://travis-ci.org/Level/leveldown-hyper)
 [![npm](https://img.shields.io/npm/dm/leveldown-hyper.svg?label=dl)](https://www.npmjs.com/package/leveldown-hyper)
 [![Coverage Status](https://coveralls.io/repos/github/Level/leveldown-hyper/badge.svg)](https://coveralls.io/github/Level/leveldown-hyper)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
