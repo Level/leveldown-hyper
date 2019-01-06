@@ -10,7 +10,9 @@
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "rebuild": "node-gyp rebuild",
     "prebuild": "prebuild --all --verbose --strip",
-    "hallmark": "hallmark --fix"
+    "hallmark": "hallmark --fix",
+    "dependency-check": "dependency-check . test/*.js bench/*.js",
+    "prepublishOnly": "npm run dependency-check"
   },
   "dependencies": {
     "abstract-leveldown": "~5.0.0",
@@ -21,6 +23,7 @@
   },
   "devDependencies": {
     "coveralls": "^3.0.2",
+    "dependency-check": "^3.3.0",
     "du": "~0.1.0",
     "faucet": "0.0.1",
     "hallmark": "^0.1.0",
