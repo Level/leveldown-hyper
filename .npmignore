@@ -15,3 +15,6 @@ INSTALL
 NEWS
 AUTHORS
 .nyc_output/
+
+.travis.yml
+.dntrc
