@@ -50,4 +50,4 @@ To sustain [`Level`](https://github.com/Level) and its activities, become a back
 
 _`leveldown-hyper` builds on the excellent work of the [`HyperLevelDB`](https://github.com/rescrv/HyperLevelDB) team and the LevelDB and Snappy teams from Google and additional contributors. HyperLevelDB, LevelDB and Snappy are issued under the [New BSD License](http://opensource.org/licenses/BSD-3-Clause)._
 
-[level-badge]: http://leveldb.org/img/badge.svg
+[level-badge]: https://leveljs.org/img/badge.svg
