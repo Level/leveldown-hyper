@@ -35,7 +35,7 @@
     "node-uuid": "^1.4.3",
     "nyc": "^14.0.0",
     "optimist": "~0.6.1",
-    "prebuild": "^8.0.0",
+    "prebuild": "^9.0.0",
     "prebuild-ci": "^3.0.0",
     "readfiletree": "~0.0.1",
     "rimraf": "^2.6.1",
