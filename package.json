@@ -30,7 +30,7 @@
     "iota-array": "^1.0.0",
     "level-community": "^3.0.0",
     "lexicographic-integer": "^1.1.0",
-    "mkfiletree": "^1.0.1",
+    "mkfiletree": "^2.0.0",
     "monotonic-timestamp": "~0.0.8",
     "node-uuid": "^1.4.3",
     "nyc": "^14.0.0",
