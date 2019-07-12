@@ -31,8 +31,8 @@ test('test destroy non-existant directory', function (t) {
 
 test('test destroy non leveldb directory', function (t) {
   var tree = {
-    'foo': 'FOO',
-    'bar': { 'one': 'ONE', 'two': 'TWO', 'three': 'THREE' }
+    foo: 'FOO',
+    bar: { one: 'ONE', two: 'TWO', three: 'THREE' }
   }
   mkfiletree.makeTemp('destroy-test', tree, function (err, dir) {
     t.notOk(err, 'no error')
@@ -67,7 +67,7 @@ makeTest('test destroy() cleans and removes only leveldb parts of a dir', functi
     leveldown.destroy(location, function () {
       readfiletree(location, function (err, tree) {
         t.notOk(err, 'no error')
-        t.deepEqual(tree, { 'foo': 'FOO' }, 'non-leveldb files left intact')
+        t.deepEqual(tree, { foo: 'FOO' }, 'non-leveldb files left intact')
         done(false)
       })
     })
