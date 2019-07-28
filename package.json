@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "coveralls": "^3.0.2",
-    "dependency-check": "^3.3.0",
+    "dependency-check": "^4.0.0",
     "du": "^1.0.0",
     "faucet": "0.0.1",
     "hallmark": "^1.0.0",
