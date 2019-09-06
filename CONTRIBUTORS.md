@@ -8,9 +8,9 @@
 | **Julian Gruber**       | [**@juliangruber**](https://github.com/juliangruber)   | [**@juliangruber@twitter**](https://twitter.com/juliangruber)       |
 | **Dominic Tarr**        | [**@dominictarr**](https://github.com/dominictarr)     | [**@dominictarr@twitter**](https://twitter.com/dominictarr)         |
 | **Yichao 'Peak' Ji**    | [**@peakji**](https://github.com/peakji)               |                                                                     |
+| **Vincent Weevers**     | [**@vweevers**](https://github.com/vweevers)           | [**@vweevers@twitter**](https://twitter.com/vweevers)               |
 | **Raynos**              |                                                        |                                                                     |
 | **Christopher Jeffrey** |                                                        |                                                                     |
-| **Vincent Weevers**     | [**@vweevers**](https://github.com/vweevers)           | [**@vweevers@twitter**](https://twitter.com/vweevers)               |
 | **Max Ogden**           | [**@maxogden**](https://github.com/maxogden)           | [**@maxogden@twitter**](https://twitter.com/maxogden)               |
 | **Geoff Greer**         | [**@ggreer**](https://github.com/ggreer)               |                                                                     |
 | **Matteo Collina**      | [**@mcollina**](https://github.com/mcollina)           | [**@matteocollina@twitter**](https://twitter.com/matteocollina)     |
@@ -21,12 +21,12 @@
 | **James Butler**        | [**@sandfox**](https://github.com/sandfox)             |                                                                     |
 | **flames of love**      |                                                        |                                                                     |
 | **kessler**             |                                                        |                                                                     |
-| **Thorsten Lorenz**     | [**@thlorenz**](https://github.com/thlorenz)           |                                                                     |
-| **Andrew Kelley**       | [**@andrewrk**](https://github.com/andrewrk)           |                                                                     |
-| **Adam Bliss**          | [**@abliss**](https://github.com/abliss)               |                                                                     |
+| **Super-User**          |                                                        |                                                                     |
 | **Sharvil Nanavati**    | [**@sharvil**](https://github.com/sharvil)             |                                                                     |
 | **mscdex**              | [**@mscdex**](https://github.com/mscdex)               |                                                                     |
 | **Dean Landolt**        | [**@deanlandolt**](https://github.com/deanlandolt)     |                                                                     |
 | **No9**                 |                                                        |                                                                     |
 | **Mark Wolfe**          | [**@wolfeidau**](https://github.com/wolfeidau)         |                                                                     |
-| **Super-User**          |                                                        |                                                                     |
+| **Adam Bliss**          | [**@abliss**](https://github.com/abliss)               |                                                                     |
+| **Thorsten Lorenz**     | [**@thlorenz**](https://github.com/thlorenz)           |                                                                     |
+| **Andrew Kelley**       | [**@andrewrk**](https://github.com/andrewrk)           |                                                                     |
