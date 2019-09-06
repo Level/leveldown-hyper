@@ -1,7 +1,5 @@
 # Changelog
 
-## [Unreleased][unreleased]
-
 ## [2.0.0] - 2018-06-21
 
 ### Changed
@@ -13,8 +11,8 @@
 - Upgrade `tape` devDependency from `~4.8.0` to `~4.9.0` ([**@ralphtheninja**](https://github.com/ralphtheninja))
 - Add `iota-array` to devDependencies ([**@ralphtheninja**](https://github.com/ralphtheninja))
 - Add `lexicographic-integer` to devDependencies ([**@ralphtheninja**](https://github.com/ralphtheninja))
-- Enable multiple seeks with buffers ([level/leveldown#323](https://github.com/level/leveldown/issues/323)) ([**@peakji**](https://github.com/peakji), [**@ralphtheninja**](https://github.com/ralphtheninja))
-- Implement iterator fast seek ([level/leveldown#329](https://github.com/level/leveldown/issues/329)) ([**@peakji**](https://github.com/peakji), [**@ralphtheninja**](https://github.com/ralphtheninja))
+- Enable multiple seeks with buffers ([level/leveldown#323](https://github.com/Level/leveldown/issues/323)) ([**@peakji**](https://github.com/peakji), [**@ralphtheninja**](https://github.com/ralphtheninja))
+- Implement iterator fast seek ([level/leveldown#329](https://github.com/Level/leveldown/issues/329)) ([**@peakji**](https://github.com/peakji), [**@ralphtheninja**](https://github.com/ralphtheninja))
 
 ### Added
 
@@ -30,10 +28,10 @@
 
 ### Fixed
 
-- Make native code run on node 10 ([level/leveldown#452](https://github.com/level/leveldown/issues/452)) ([**@ralphtheninja**](https://github.com/ralphtheninja))
-- Implement iterator memory leak fix from leveldown ([level/leveldown#264](https://github.com/level/leveldown/issues/264)) ([**@chjj**](https://github.com/chjj), [**@ralphtheninja**](https://github.com/ralphtheninja))
-- Release iterator snapshots ([level/leveldown#267](https://github.com/level/leveldown/issues/267)) ([**@chjj**](https://github.com/chjj), [**@ralphtheninja**](https://github.com/ralphtheninja))
-- Closing db with open iterator should not crash ([level/leveldown#368](https://github.com/level/leveldown/issues/368)) ([**@peakji**](https://github.com/peakji), [**@ralphtheninja**](https://github.com/ralphtheninja))
+- Make native code run on node 10 ([level/leveldown#452](https://github.com/Level/leveldown/issues/452)) ([**@ralphtheninja**](https://github.com/ralphtheninja))
+- Implement iterator memory leak fix from leveldown ([level/leveldown#264](https://github.com/Level/leveldown/issues/264)) ([**@chjj**](https://github.com/chjj), [**@ralphtheninja**](https://github.com/ralphtheninja))
+- Release iterator snapshots ([level/leveldown#267](https://github.com/Level/leveldown/issues/267)) ([**@chjj**](https://github.com/chjj), [**@ralphtheninja**](https://github.com/ralphtheninja))
+- Closing db with open iterator should not crash ([level/leveldown#368](https://github.com/Level/leveldown/issues/368)) ([**@peakji**](https://github.com/peakji), [**@ralphtheninja**](https://github.com/ralphtheninja))
 
 ## [1.1.3] - 2017-08-15
 
@@ -94,14 +92,12 @@
 
 **Historical Note** This release was not the first, but marks the version where `leveldown-hyper` was extracted from the `leveldown` repository.
 
-[unreleased]: https://github.com/level/leveldown-hyper/compare/v2.0.0...HEAD
+[2.0.0]: https://github.com/Level/leveldown-hyper/compare/v1.1.3...v2.0.0
 
-[2.0.0]: https://github.com/level/leveldown-hyper/compare/v1.1.3...v2.0.0
+[1.1.3]: https://github.com/Level/leveldown-hyper/compare/v1.1.2...v1.1.3
 
-[1.1.3]: https://github.com/level/leveldown-hyper/compare/v1.1.2...v1.1.3
+[1.1.2]: https://github.com/Level/leveldown-hyper/compare/v1.1.1...v1.1.2
 
-[1.1.2]: https://github.com/level/leveldown-hyper/compare/v1.1.1...v1.1.2
+[1.1.1]: https://github.com/Level/leveldown-hyper/compare/v1.1.0...v1.1.1
 
-[1.1.1]: https://github.com/level/leveldown-hyper/compare/v1.1.0...v1.1.1
-
-[1.1.0]: https://github.com/level/leveldown-hyper/compare/v1.0.0...v1.1.0
+[1.1.0]: https://github.com/Level/leveldown-hyper/compare/v1.0.0...v1.1.0
