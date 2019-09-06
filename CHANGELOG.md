@@ -1,7 +1,5 @@
 # Changelog
 
-## [Unreleased][unreleased]
-
 ## [2.0.0] - 2018-06-21
 
 ### Changed
@@ -93,8 +91,6 @@
 ## 1.0.0 - 2015-05-19
 
 **Historical Note** This release was not the first, but marks the version where `leveldown-hyper` was extracted from the `leveldown` repository.
-
-[unreleased]: https://github.com/level/leveldown-hyper/compare/v2.0.0...HEAD
 
 [2.0.0]: https://github.com/level/leveldown-hyper/compare/v1.1.3...v2.0.0
 
