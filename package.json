@@ -6,7 +6,7 @@
   "main": "leveldown-hyper.js",
   "scripts": {
     "install": "prebuild-install || node-gyp rebuild",
-    "test": "standard && hallmark && nyc tape test/*-test.js && prebuild-ci",
+    "test": "standard && hallmark && (nyc -s tape test/*-test.js | faucet) && nyc report && prebuild-ci",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "rebuild": "node-gyp rebuild",
     "prebuild": "prebuild --all --verbose --strip",
@@ -25,7 +25,7 @@
     "coveralls": "^3.0.2",
     "dependency-check": "^3.3.0",
     "du": "^1.0.0",
-    "faucet": "0.0.1",
+    "faucet": "^0.0.1",
     "hallmark": "^2.0.0",
     "iota-array": "^1.0.0",
     "level-community": "^3.0.0",
