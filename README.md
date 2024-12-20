@@ -1,14 +1,8 @@
 # leveldown-hyper
 
-[![level badge][level-badge]](https://github.com/Level/awesome)
-[![npm](https://img.shields.io/npm/v/leveldown-hyper.svg?label=&logo=npm)](https://www.npmjs.com/package/leveldown-hyper)
-[![Node version](https://img.shields.io/node/v/leveldown-hyper.svg)](https://www.npmjs.com/package/leveldown-hyper)
-[![Travis](https://img.shields.io/travis/com/Level/leveldown-hyper.svg?logo=travis&label=)](https://travis-ci.com/Level/leveldown-hyper)
-[![npm](https://img.shields.io/npm/dm/leveldown-hyper.svg?label=dl)](https://www.npmjs.com/package/leveldown-hyper)
-[![Coverage Status](https://coveralls.io/repos/github/Level/leveldown-hyper/badge.svg)](https://coveralls.io/github/Level/leveldown-hyper)
-[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
-[![Backers on Open Collective](https://opencollective.com/level/backers/badge.svg?color=orange)](#backers)
-[![Sponsors on Open Collective](https://opencollective.com/level/sponsors/badge.svg?color=orange)](#sponsors)
+**Discontinued.**
+
+---
 
 `leveldown-hyper` is a fork of `leveldown` and uses [`HyperLevelDB`](https://github.com/rescrv/HyperLevelDB) as backend. It extends the `leveldown` api with functionality to do live backups. This README only documents the `liveBackup()` method. For a complete reference we refer to [`leveldown`](https://github.com/Level/leveldown).
 
@@ -32,22 +26,8 @@ The `callback` function will be called with no arguments when a live backup was 
 
 See the [Contribution Guide](https://github.com/Level/community/blob/master/CONTRIBUTING.md) for more details.
 
-## Donate
-
-To sustain [`Level`](https://github.com/Level) and its activities, become a backer or sponsor on [Open Collective](https://opencollective.com/level). Your logo or avatar will be displayed on our 28+ [GitHub repositories](https://github.com/Level) and [npm](https://www.npmjs.com/) packages. 💖
-
-### Backers
-
-[![Open Collective backers](https://opencollective.com/level/backers.svg?width=890)](https://opencollective.com/level)
-
-### Sponsors
-
-[![Open Collective sponsors](https://opencollective.com/level/sponsors.svg?width=890)](https://opencollective.com/level)
-
 ## License
 
 [MIT](LICENSE.md) © 2012-present [Contributors](CONTRIBUTORS.md).
 
 _`leveldown-hyper` builds on the excellent work of the [`HyperLevelDB`](https://github.com/rescrv/HyperLevelDB) team and the LevelDB and Snappy teams from Google and additional contributors. HyperLevelDB, LevelDB and Snappy are issued under the [New BSD License](http://opensource.org/licenses/BSD-3-Clause)._
-
-[level-badge]: https://leveljs.org/img/badge.svg
